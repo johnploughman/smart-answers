@@ -4,6 +4,8 @@ SmartAnswers::Application.routes.draw do
   constraints id: /[a-z0-9-]+/i do
     get '/:id/visualise(.:format)', to: 'smart_answers#visualise', as: :visualise
 
+    get 'calculate-state-pension', to: redirect('state-pension-age')
+
     get '/:id(/:started(/*responses)).:format',
       to: 'smart_answers#show',
       as: :formatted_smart_answer,
